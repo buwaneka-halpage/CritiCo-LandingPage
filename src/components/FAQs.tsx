@@ -67,6 +67,7 @@ export const FAQs = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ borderColor: "rgba(133,139,148,0.35)" }}
                 className="accordion-item rounded-[10px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] overflow-hidden"
               >
                 <div 

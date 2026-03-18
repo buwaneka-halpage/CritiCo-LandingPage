@@ -118,7 +118,8 @@ export const WhyChoose = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="flex flex-col items-center text-center gap-5"
+                whileHover={{ y: -6, scale: 1.02 }}
+                className="flex flex-col items-center text-center gap-5 cursor-default"
               >
                  <img src={f.icon} className="h-8 w-auto" alt={f.title} />
                  <h3 className="text-xl font-medium text-white">{f.title}</h3>

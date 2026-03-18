@@ -58,14 +58,20 @@ export const Process = () => {
               <p className="text-[#858b94] text-lg leading-relaxed">
                 A framework that unites human insight with automation to drive growth at every stage.
               </p>
-              <a href="./contact" className="group p-[2px] rounded-[10px] bg-gradient-to-r from-[#60a5fa] via-[#a855f7] to-[#ec4899] inline-block hover:scale-105 transition-transform active:scale-95">
-                <div className="bg-[#0a0d14] rounded-[8px] px-8 py-4 flex items-center gap-3">
+              <motion.a
+                href="./contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="group p-[2px] rounded-[10px] bg-gradient-to-r from-[#60a5fa] via-[#a855f7] to-[#ec4899] inline-block relative overflow-hidden"
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out rounded-[10px]" />
+                <div className="bg-[#0a0d14] rounded-[8px] px-8 py-4 flex items-center gap-3 relative z-10">
                   <div className="p-1 rounded-sm bg-white/10 group-hover:bg-white text-white group-hover:text-black transition-colors">
                     <ArrowUpRight size={14} />
                   </div>
-                   <div className="button-text font-mono text-[11px] font-bold text-white tracking-widest uppercase">Start a Project</div>
+                  <div className="button-text font-mono text-[11px] font-bold text-white tracking-widest uppercase">Start a Project</div>
                 </div>
-              </a>
+              </motion.a>
             </div>
           </motion.div>
 
@@ -78,7 +84,8 @@ export const Process = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="step-item p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920]"
+                whileHover={{ y: -3, borderColor: "rgba(96,165,250,0.2)" }}
+                className="step-item p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] cursor-default"
               >
                 <div className="step-item-inner bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] overflow-hidden">
                   {/* Top Content */}

@@ -1,6 +1,6 @@
 import { Zap, Database, Workflow, Settings, Activity, Layers, Cloud, Mail, Server, Network, Bot, ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "preact/hooks";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 const Counter = ({ target }: { target: number }) => {
   const [count, setCount] = useState(0);
@@ -35,6 +35,11 @@ const Counter = ({ target }: { target: number }) => {
   return <span ref={ref}>{count}</span>;
 };
 
+const cardHover: Variants = {
+  rest: { y: 0, borderColor: "rgba(133,139,148,0.2)" },
+  hover: { y: -5, borderColor: "rgba(96,165,250,0.3)", transition: { duration: 0.3, ease: "easeOut" } }
+};
+
 export const Expertise = () => {
   return (
     <section id="service" className="feature-section py-24 bg-[#0a0d14]">
@@ -63,7 +68,12 @@ export const Expertise = () => {
           {/* TOP GRID */}
           <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6">
             {/* Process Automation */}
-            <div className="p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920]">
+            <motion.div
+              variants={cardHover}
+              initial="rest"
+              whileHover="hover"
+              className="p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] cursor-default"
+            >
               <div className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] p-10 h-full flex flex-col justify-between overflow-hidden relative">
                 <div className="flex flex-col gap-6 relative z-10">
                   <div>
@@ -80,7 +90,6 @@ export const Expertise = () => {
                   </div>
                 </div>
                 <div className="mt-12 relative h-64 w-full flex items-center justify-center overflow-hidden">
-                  {/* SVG Wires Layer */}
                   <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 200">
                     <defs>
                       <linearGradient id="wire-glow" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -114,7 +123,6 @@ export const Expertise = () => {
                     />
                   </svg>
 
-                  {/* Icon Nodes */}
                   <div className="relative w-full h-full">
                     {/* Center Node */}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-2xl bg-gradient-to-br from-[#60a5fa] to-[#3b82f6] shadow-[0_0_30px_rgba(96,165,250,0.3)] flex items-center justify-center z-10 border border-white/20">
@@ -128,32 +136,37 @@ export const Expertise = () => {
                       { icon: Layers, color: "#ec4899", pos: "top-[15%] right-[25%]", delay: 0.4 },
                       { icon: Activity, color: "#22c55e", pos: "bottom-[15%] right-[30%]", delay: 0.6 },
                       { icon: Settings, color: "#f59e0b", pos: "top-1/2 right-[15%] -translate-y-1/2", delay: 0.8 }
-                    ].map((Node, i) => (
+                    ].map((nodeItem, i) => (
                       <motion.div
                         key={i}
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: Node.delay, duration: 0.5 }}
-                        className={`absolute ${Node.pos} w-10 h-10 rounded-xl bg-[#11141b] border border-white/10 flex items-center justify-center group hover:border-white/20 transition-colors cursor-pointer shadow-lg`}
+                        whileHover={{ scale: 1.15 }}
+                        transition={{ delay: nodeItem.delay, duration: 0.5 }}
+                        className={`absolute ${nodeItem.pos} w-10 h-10 rounded-xl bg-[#11141b] border border-white/10 flex items-center justify-center group hover:border-white/20 transition-colors cursor-pointer shadow-lg`}
                       >
-                        <Node.icon size={16} style={{ color: Node.color }} className="opacity-70 group-hover:opacity-100 transition-opacity" />
+                        <nodeItem.icon size={16} style={{ color: nodeItem.color }} className="opacity-70 group-hover:opacity-100 transition-opacity" />
                         <div className="absolute inset-0 rounded-xl bg-white/5 animate-ping opacity-20" style={{ animationDuration: '3s' }}></div>
                       </motion.div>
                     ))}
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Bespoke Software */}
-            <div className="p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920]">
+            <motion.div
+              variants={cardHover}
+              initial="rest"
+              whileHover="hover"
+              className="p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] cursor-default"
+            >
               <div className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] p-10 h-full flex flex-col justify-between">
                 <div>
                   <h3 className="text-2xl text-white mb-2">Bespoke Software</h3>
                   <p className="text-[#858b94]">We build modern, scalable web and mobile applications tailored to your specific business needs and user requirements.</p>
                 </div>
                 <div className="mt-8 relative h-48 overflow-hidden rounded-2xl bg-[#0d1017] border border-white/5 p-5 font-mono text-[11px] leading-relaxed group shadow-2xl">
-                  {/* Title Bar */}
                   <div className="flex items-center justify-between mb-4 opacity-40">
                     <div className="flex items-center gap-1.5">
                       <div className="w-2 h-2 rounded-full bg-white/20"></div>
@@ -163,7 +176,6 @@ export const Expertise = () => {
                     <span className="text-[9px] uppercase tracking-[0.2em]">infrastructure.ts</span>
                   </div>
 
-                  {/* Code Body */}
                   <div className="space-y-1.5 selection:bg-white/10">
                     <div className="flex gap-4">
                       <span className="opacity-10 w-3 text-right">01</span>
@@ -199,17 +211,21 @@ export const Expertise = () => {
                   <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#0d1017] to-transparent pointer-events-none"></div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* MIDDLE GRID */}
           <div className="grid grid-cols-1 md:grid-cols-[1fr_0.6fr_1fr] gap-6">
             {/* Autonomous Support Agent */}
-            <div className="p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920]">
+            <motion.div
+              variants={cardHover}
+              initial="rest"
+              whileHover="hover"
+              className="p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] cursor-default"
+            >
               <div className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] p-8 h-full">
                 <h3 className="text-xl text-white mb-4">Autonomous Support Agent</h3>
                 <div className="space-y-4">
-                  {/* Turn 1 */}
                   <div className="flex items-start gap-2">
                     <div className="w-7 h-7 rounded-lg bg-[#11141b] border border-white/5 flex items-center justify-center shrink-0">
                       <Bot size={14} className="text-[#858b94]" />
@@ -218,7 +234,6 @@ export const Expertise = () => {
                       Welcome back. Should I begin triaging the pending support tickets?
                     </div>
                   </div>
-                  {/* Turn 2 */}
                   <div className="flex items-start gap-2 flex-row-reverse">
                     <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center shrink-0 overflow-hidden">
                       <img src="./assets/icon-19.svg" className="w-full h-full object-cover" alt="" />
@@ -227,7 +242,6 @@ export const Expertise = () => {
                       Yes, prioritize high-revenue accounts first.
                     </div>
                   </div>
-                  {/* Turn 3 */}
                   <div className="flex items-start gap-2">
                     <div className="w-7 h-7 rounded-lg bg-[#11141b] border border-white/5 flex items-center justify-center shrink-0">
                       <Bot size={14} className="text-[#858b94]" />
@@ -236,7 +250,6 @@ export const Expertise = () => {
                       Processing. 12 responses drafted based on v2 docs. Ready for review.
                     </div>
                   </div>
-                  {/* Turn 4 */}
                   <div className="flex items-start gap-2 flex-row-reverse">
                     <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center shrink-0 overflow-hidden">
                       <img src="./assets/icon-19.svg" className="w-full h-full object-cover" alt="" />
@@ -247,12 +260,16 @@ export const Expertise = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Stats */}
             <div className="flex flex-col gap-6">
-              {/* Global Reach */}
-              <div className="flex-1 p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920]">
+              <motion.div
+                variants={cardHover}
+                initial="rest"
+                whileHover="hover"
+                className="flex-1 p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] cursor-default"
+              >
                 <div className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] h-full flex flex-col items-center justify-center text-center p-8">
                   <div className="flex -space-x-3 mb-4">
                     {[
@@ -274,21 +291,30 @@ export const Expertise = () => {
                   </span>
                   <span className="text-[10px] font-mono text-[#858b94] uppercase tracking-[0.2em]">Countries Reached</span>
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Satisfaction Rate */}
-              <div className="flex-1 p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920]">
+              <motion.div
+                variants={cardHover}
+                initial="rest"
+                whileHover="hover"
+                className="flex-1 p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] cursor-default"
+              >
                 <div className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] h-full flex flex-col items-center justify-center text-center p-8">
                   <span className="text-3xl font-medium text-white mb-1">
                     <Counter target={99} />%
                   </span>
                   <span className="text-[10px] font-mono text-[#858b94] uppercase tracking-[0.2em]">Client Satisfaction rate</span>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* Technical Strategy */}
-            <div className="p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920]">
+            <motion.div
+              variants={cardHover}
+              initial="rest"
+              whileHover="hover"
+              className="p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] cursor-default"
+            >
               <div className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] p-8 h-full flex flex-col justify-between overflow-hidden">
                 <div className="mb-4">
                   <h3 className="text-xl text-white mb-2">Technical Strategy</h3>
@@ -296,7 +322,6 @@ export const Expertise = () => {
                 </div>
                 <div className="relative flex-1 mt-4 overflow-hidden rounded-xl bg-[#0d1017] flex items-center justify-center p-6 border border-white/5">
                   <div className="relative w-full h-full min-h-[140px] flex items-center justify-between z-10 px-4">
-                    {/* Connecting Line */}
                     <div className="absolute top-1/2 left-8 right-8 h-[2px] bg-white/5 -translate-y-1/2 overflow-hidden">
                       <motion.div
                         className="h-full bg-gradient-to-r from-transparent via-[#a855f7] to-transparent w-full"
@@ -306,7 +331,6 @@ export const Expertise = () => {
                       />
                     </div>
 
-                    {/* Audit Node */}
                     <div className="relative group z-10">
                       <div className="w-10 h-10 rounded-lg bg-[#1c1f26] border border-white/10 flex items-center justify-center shadow-lg group-hover:border-[#60a5fa]/50 transition-colors relative z-10">
                         <Layers size={18} className="text-[#858b94] group-hover:text-[#60a5fa] transition-colors relative z-10" />
@@ -317,7 +341,6 @@ export const Expertise = () => {
                       </div>
                     </div>
 
-                    {/* Strategy Node */}
                     <div className="relative group z-10">
                       <div className="w-12 h-12 rounded-xl bg-[#1c1f26] border border-white/20 flex items-center justify-center shadow-xl group-hover:border-[#a855f7]/50 transition-colors relative z-10">
                         <Settings size={22} className="text-[#a855f7] animate-[spin_10s_linear_infinite] relative z-10" />
@@ -328,7 +351,6 @@ export const Expertise = () => {
                       </div>
                     </div>
 
-                    {/* Roadmap Node */}
                     <div className="relative group z-10">
                       <div className="w-10 h-10 rounded-lg bg-[#1c1f26] border border-white/10 flex items-center justify-center shadow-lg group-hover:border-[#ec4899]/50 transition-colors relative z-10">
                         <Activity size={18} className="text-[#858b94] group-hover:text-[#ec4899] transition-colors relative z-10" />
@@ -343,18 +365,22 @@ export const Expertise = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0d1017] via-transparent to-[#0d1017] pointer-events-none"></div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* BOTTOM GRID */}
           <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6">
 
             {/* Data & Workflow Automation */}
-            <div className="feature-item p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] flex flex-col overflow-hidden">
+            <motion.div
+              variants={cardHover}
+              initial="rest"
+              whileHover="hover"
+              className="feature-item p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] flex flex-col overflow-hidden cursor-default"
+            >
               <div className="item-inner h-full bg-gradient-to-b from-[#161a23] to-[#0a0d14] rounded-[18px]">
                 <div className="feature-inner-content feature-bottom flex flex-col lg:flex-row justify-between p-10 h-full overflow-hidden relative">
 
-                  {/* Left: Content */}
                   <div className="feature-top-content flex flex-col gap-6 relative z-10 lg:w-[40%]">
                     <div className="feature-title-info">
                       <h3 className="feature-title text-[32px] text-white font-medium leading-tight mb-4">Data & workflow Automation</h3>
@@ -372,7 +398,6 @@ export const Expertise = () => {
                     </div>
                   </div>
 
-                  {/* Right: Visualization */}
                   <div className="item-seven-image-wrap flex-1 relative mt-12 lg:mt-0 min-h-[320px] flex items-center justify-center overflow-hidden">
                     <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-40" viewBox="0 0 400 300">
                       <defs>
@@ -448,10 +473,15 @@ export const Expertise = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Consultation CTA Card */}
-            <div className="feature-item _02 p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] relative group flex flex-col overflow-hidden">
+            <motion.div
+              variants={cardHover}
+              initial="rest"
+              whileHover="hover"
+              className="feature-item _02 p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] relative group flex flex-col overflow-hidden cursor-default"
+            >
               <div className="item-inner two h-full bg-gradient-to-b from-[#1c1f26] via-[#0a0d14] to-[#0a0d14] rounded-[18px] relative z-10">
                 <div className="feature-inner-content two p-10 flex flex-col justify-center items-center text-center h-full">
 
@@ -461,14 +491,20 @@ export const Expertise = () => {
 
                   <div className="feature-item-eight-cta mt-10 flex flex-col items-center gap-6 w-full">
                     <div className="feature-button w-full max-w-sm">
-                      <a href="./contact" className="group p-[2px] rounded-[10px] bg-gradient-to-r from-[#60a5fa] via-[#a855f7] to-[#ec4899] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center">
-                        <div className="bg-[#0a0d14] rounded-[8px] px-8 py-4 flex items-center justify-center gap-3 w-full">
-                          <div className="p-1 rounded-sm bg-white/10 group-hover:bg-white text-white group-hover:text-black transition-colors">
+                      <motion.a
+                        href="./contact"
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }}
+                        className="group/btn p-[2px] rounded-[10px] bg-gradient-to-r from-[#60a5fa] via-[#a855f7] to-[#ec4899] flex items-center justify-center relative overflow-hidden"
+                      >
+                        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 ease-out rounded-[10px]" />
+                        <div className="bg-[#0a0d14] rounded-[8px] px-8 py-4 flex items-center justify-center gap-3 w-full relative z-10">
+                          <div className="p-1 rounded-sm bg-white/10 group-hover/btn:bg-white text-white group-hover/btn:text-black transition-colors">
                             <ArrowUpRight size={14} />
                           </div>
                           <span className="font-mono text-[13px] font-bold tracking-widest text-white uppercase whitespace-nowrap">SCHEDULE A CONSULTATION</span>
                         </div>
-                      </a>
+                      </motion.a>
                     </div>
                     <div className="cta-text text-[12px] text-[#858b94] italic font-light leading-snug">Only 20-30min. Friendly chat, no pressure.</div>
                   </div>
@@ -476,14 +512,13 @@ export const Expertise = () => {
                 </div>
               </div>
 
-              {/* Background Video */}
               <div className="feature-bg absolute inset-0 z-0 overflow-hidden rounded-[18px] opacity-10 grayscale brightness-125">
                 <video autoPlay loop muted playsInline className="feature-bg-video w-full h-full object-cover">
                   <source src="./assets/hero_bg_video.mp4" type="video/mp4" />
                 </video>
                 <div className="feature-overlay absolute inset-0 bg-gradient-to-b from-transparent to-[#0a0d14]/80"></div>
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </div>

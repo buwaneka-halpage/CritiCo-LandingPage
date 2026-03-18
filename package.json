@@ -12,7 +12,8 @@
     "@tailwindcss/vite": "^4.2.1",
     "framer-motion": "^12.36.0",
     "lucide-react": "^0.577.0",
-    "preact": "^10.28.4"
+    "preact": "^10.28.4",
+    "resend": "^6.9.4"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.10.3",
