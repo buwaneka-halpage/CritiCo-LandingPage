@@ -108,7 +108,7 @@ export const Footer = () => {
                   <div className="contact-info-inner flex flex-col gap-4">
                     <div className="footer-title text-[11px] font-mono font-bold text-white/20 uppercase tracking-[0.4em]">Contact Info</div>
                     <div className="contact-links-wrap flex flex-col gap-2">
-                      <a href="tel:+94 74 022 4877" className="contact-link text-xl text-[#858b94] hover:text-white transition-colors">+1 (415) 555-0167</a>
+                      <a href="tel:+94740224877" className="contact-link text-xl text-[#858b94] hover:text-white transition-colors">+94 74 022 4877</a>
                       <a href="mailto:hello@critico.live" className="contact-link text-xl text-[#858b94] hover:text-white transition-colors">hello@critico.live</a>
                     </div>
                   </div>
