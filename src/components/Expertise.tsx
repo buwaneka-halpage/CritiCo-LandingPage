@@ -1,6 +1,8 @@
 import { Zap, Database, Workflow, Settings, Activity, Layers, Cloud, Mail, Server, Network, Bot, ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { motion, type Variants } from "framer-motion";
+import Spotlight from "./reactbits/Spotlight";
+import ShinyText from "./reactbits/ShinyText";
 
 const Counter = ({ target }: { target: number }) => {
   const [count, setCount] = useState(0);
@@ -55,7 +57,7 @@ export const Expertise = () => {
         >
           <div className="flex items-center gap-4 mb-6">
             <div className="w-12 h-[1px] bg-[#1c1f26]"></div>
-            <div className="font-mono text-[11px] tracking-[0.25em] text-[#858b94] uppercase font-medium">EXPERTISE & CAPABILITIES</div>
+            <ShinyText text="EXPERTISE & CAPABILITIES" speed={4} color="#858b94" shineColor="#60a5fa" className="font-mono text-[11px] tracking-[0.25em] uppercase font-medium" />
             <div className="w-12 h-[1px] bg-[#1c1f26]"></div>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight bg-gradient-to-b from-white to-[#858b94] bg-clip-text text-transparent">
@@ -74,7 +76,7 @@ export const Expertise = () => {
               whileHover="hover"
               className="p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] cursor-default"
             >
-              <div className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] p-10 h-full flex flex-col justify-between overflow-hidden relative">
+              <Spotlight className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] p-10 h-full flex flex-col justify-between" spotlightColor="rgba(96,165,250,0.1)">
                 <div className="flex flex-col gap-6 relative z-10">
                   <div>
                     <h3 className="text-2xl text-white mb-2">Process Automation</h3>
@@ -151,7 +153,7 @@ export const Expertise = () => {
                     ))}
                   </div>
                 </div>
-              </div>
+              </Spotlight>
             </motion.div>
 
             {/* Bespoke Software */}
@@ -161,7 +163,7 @@ export const Expertise = () => {
               whileHover="hover"
               className="p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] cursor-default"
             >
-              <div className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] p-10 h-full flex flex-col justify-between">
+              <Spotlight className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] p-10 h-full flex flex-col justify-between" spotlightColor="rgba(168,85,247,0.1)">
                 <div>
                   <h3 className="text-2xl text-white mb-2">Bespoke Software</h3>
                   <p className="text-[#858b94]">We build modern, scalable web and mobile applications tailored to your specific business needs and user requirements.</p>
@@ -210,7 +212,7 @@ export const Expertise = () => {
                   <div className="absolute inset-0 bg-gradient-to-tr from-[#60a5fa]/5 via-transparent to-transparent pointer-events-none"></div>
                   <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#0d1017] to-transparent pointer-events-none"></div>
                 </div>
-              </div>
+              </Spotlight>
             </motion.div>
           </div>
 
@@ -223,7 +225,7 @@ export const Expertise = () => {
               whileHover="hover"
               className="p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] cursor-default"
             >
-              <div className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] p-8 h-full">
+              <Spotlight className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] p-8 h-full" spotlightColor="rgba(34,197,94,0.08)">
                 <h3 className="text-xl text-white mb-4">Autonomous Support Agent</h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-2">
@@ -259,7 +261,7 @@ export const Expertise = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Spotlight>
             </motion.div>
 
             {/* Stats */}
@@ -270,7 +272,7 @@ export const Expertise = () => {
                 whileHover="hover"
                 className="flex-1 p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] cursor-default"
               >
-                <div className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] h-full flex flex-col items-center justify-center text-center p-8">
+                <Spotlight className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] h-full flex flex-col items-center justify-center text-center p-8" spotlightColor="rgba(96,165,250,0.12)">
                   <div className="flex -space-x-3 mb-4">
                     {[
                       { code: 'ae', name: 'UAE' },
@@ -290,7 +292,7 @@ export const Expertise = () => {
                     <Counter target={15} />+
                   </span>
                   <span className="text-[10px] font-mono text-[#858b94] uppercase tracking-[0.2em]">Countries Reached</span>
-                </div>
+                </Spotlight>
               </motion.div>
 
               <motion.div
@@ -299,12 +301,12 @@ export const Expertise = () => {
                 whileHover="hover"
                 className="flex-1 p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] cursor-default"
               >
-                <div className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] h-full flex flex-col items-center justify-center text-center p-8">
+                <Spotlight className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] h-full flex flex-col items-center justify-center text-center p-8" spotlightColor="rgba(96,165,250,0.12)">
                   <span className="text-3xl font-medium text-white mb-1">
                     <Counter target={99} />%
                   </span>
                   <span className="text-[10px] font-mono text-[#858b94] uppercase tracking-[0.2em]">Client Satisfaction rate</span>
-                </div>
+                </Spotlight>
               </motion.div>
             </div>
 
@@ -315,7 +317,7 @@ export const Expertise = () => {
               whileHover="hover"
               className="p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] cursor-default"
             >
-              <div className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] p-8 h-full flex flex-col justify-between overflow-hidden">
+              <Spotlight className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] p-8 h-full flex flex-col justify-between overflow-hidden" spotlightColor="rgba(168,85,247,0.1)">
                 <div className="mb-4">
                   <h3 className="text-xl text-white mb-2">Technical Strategy</h3>
                   <p className="text-[#858b94] text-[12px]">We guide organizations through digital transformation, from architectural audits to AI implementation roadmaps.</p>
@@ -364,7 +366,7 @@ export const Expertise = () => {
 
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0d1017] via-transparent to-[#0d1017] pointer-events-none"></div>
                 </div>
-              </div>
+              </Spotlight>
             </motion.div>
           </div>
 
@@ -378,7 +380,7 @@ export const Expertise = () => {
               whileHover="hover"
               className="feature-item p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] flex flex-col overflow-hidden cursor-default"
             >
-              <div className="item-inner h-full bg-gradient-to-b from-[#161a23] to-[#0a0d14] rounded-[18px]">
+              <Spotlight className="item-inner h-full bg-gradient-to-b from-[#161a23] to-[#0a0d14] rounded-[18px]" spotlightColor="rgba(96,165,250,0.08)">
                 <div className="feature-inner-content feature-bottom flex flex-col lg:flex-row justify-between p-10 h-full overflow-hidden relative">
 
                   <div className="feature-top-content flex flex-col gap-6 relative z-10 lg:w-[40%]">
@@ -472,7 +474,7 @@ export const Expertise = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Spotlight>
             </motion.div>
 
             {/* Consultation CTA Card */}
@@ -482,7 +484,7 @@ export const Expertise = () => {
               whileHover="hover"
               className="feature-item _02 p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] relative group flex flex-col overflow-hidden cursor-default"
             >
-              <div className="item-inner two h-full bg-gradient-to-b from-[#1c1f26] via-[#0a0d14] to-[#0a0d14] rounded-[18px] relative z-10">
+              <Spotlight className="item-inner two h-full bg-gradient-to-b from-[#1c1f26] via-[#0a0d14] to-[#0a0d14] rounded-[18px] relative z-10" spotlightColor="rgba(236,72,153,0.1)">
                 <div className="feature-inner-content two p-10 flex flex-col justify-center items-center text-center h-full">
 
                   <div className="feature-title-info">
@@ -510,7 +512,7 @@ export const Expertise = () => {
                   </div>
 
                 </div>
-              </div>
+              </Spotlight>
 
               <div className="feature-bg absolute inset-0 z-0 overflow-hidden rounded-[18px] opacity-10 grayscale brightness-125">
                 <video autoPlay loop muted playsInline className="feature-bg-video w-full h-full object-cover">
