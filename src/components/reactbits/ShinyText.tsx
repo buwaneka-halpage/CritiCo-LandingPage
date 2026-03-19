@@ -1,6 +1,6 @@
 // Source: react-bits.dev — adapted for framer-motion (not motion/react)
 import React, { useState, useCallback, useEffect, useRef } from 'react';
-import { motion, useMotionValue, useAnimationFrame, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useAnimationFrame, useTransform, type MotionStyle } from 'framer-motion';
 
 interface ShinyTextProps {
   text: string;
@@ -95,18 +95,19 @@ const ShinyText: React.FC<ShinyTextProps> = ({
     if (pauseOnHover) setIsPaused(false);
   }, [pauseOnHover]);
 
-  const gradientStyle: React.CSSProperties = {
+  const motionStyle: MotionStyle = {
     backgroundImage: `linear-gradient(${spread}deg, ${color} 0%, ${color} 35%, ${shineColor} 50%, ${color} 65%, ${color} 100%)`,
     backgroundSize: '200% auto',
     WebkitBackgroundClip: 'text',
     backgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
+    backgroundPosition,
   };
 
   return (
     <motion.span
       className={`inline-block ${className}`}
-      style={{ ...gradientStyle, backgroundPosition }}
+      style={motionStyle}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

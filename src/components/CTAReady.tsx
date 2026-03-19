@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "preact/hooks";
 import { ArrowUpRight, CheckCircle } from "lucide-react";
+import DecryptedText from "./reactbits/DecryptedText";
+import ShinyText from "./reactbits/ShinyText";
 
 type FormState = "idle" | "loading" | "success" | "error";
 
@@ -71,16 +73,8 @@ export const CTAReady = () => {
               <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
                 <CheckCircle size={28} className="text-emerald-400" />
               </div>
-              <h2
-                className="text-4xl md:text-5xl font-medium leading-[1.2]"
-                style={{
-                  backgroundImage: 'linear-gradient(90deg, #edf0f5, #858b94 80%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}
-              >
-                Message received.
+              <h2 className="text-4xl md:text-5xl font-medium leading-[1.2]">
+                <ShinyText text="Message received." speed={3} color="#edf0f5" shineColor="#60a5fa" className="text-4xl md:text-5xl font-medium" />
               </h2>
               <p className="text-[#858b94] text-lg leading-[1.4]">
                 We'll be back in touch within 1 business day. Check your inbox for a confirmation.
@@ -101,16 +95,17 @@ export const CTAReady = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
               >
-                <h2
-                  className="text-4xl md:text-5xl font-medium leading-[1.2] max-w-[380px]"
-                  style={{
-                    backgroundImage: 'linear-gradient(90deg, #edf0f5, #858b94 80%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text'
-                  }}
-                >
-                  Ready to Start<br />Your Next<br />Big Project?
+                <h2 className="text-4xl md:text-5xl font-medium leading-[1.2] max-w-[420px] text-white text-center">
+                  <DecryptedText
+                    text="Ready to Start Your Next Big Project?"
+                    animateOn="view"
+                    sequential={true}
+                    revealDirection="start"
+                    speed={22}
+                    className="text-white"
+                    encryptedClassName="text-[#60a5fa]/60"
+                    parentClassName="justify-center flex-wrap"
+                  />
                 </h2>
                 <p className="text-[#858b94] text-[1.125rem] leading-[1.3] max-w-[500px]">
                   Tell us what you're building. We'll reply within 1 business day — no jargon, no pressure.

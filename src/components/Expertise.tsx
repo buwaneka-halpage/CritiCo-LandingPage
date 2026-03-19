@@ -306,7 +306,7 @@ export const Expertise = () => {
                     <Counter target={99} />%
                   </span>
                   <span className="text-[10px] font-mono text-[#858b94] uppercase tracking-[0.2em]">Client Satisfaction rate</span>
-                </div>
+                </Spotlight>
               </motion.div>
             </div>
 
@@ -317,7 +317,7 @@ export const Expertise = () => {
               whileHover="hover"
               className="p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] cursor-default"
             >
-              <div className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] p-8 h-full flex flex-col justify-between overflow-hidden">
+              <Spotlight className="bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] p-8 h-full flex flex-col justify-between overflow-hidden" spotlightColor="rgba(168,85,247,0.1)">
                 <div className="mb-4">
                   <h3 className="text-xl text-white mb-2">Technical Strategy</h3>
                   <p className="text-[#858b94] text-[12px]">We guide organizations through digital transformation, from architectural audits to AI implementation roadmaps.</p>
@@ -366,7 +366,7 @@ export const Expertise = () => {
 
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0d1017] via-transparent to-[#0d1017] pointer-events-none"></div>
                 </div>
-              </div>
+              </Spotlight>
             </motion.div>
           </div>
 
@@ -380,7 +380,7 @@ export const Expertise = () => {
               whileHover="hover"
               className="feature-item p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] flex flex-col overflow-hidden cursor-default"
             >
-              <div className="item-inner h-full bg-gradient-to-b from-[#161a23] to-[#0a0d14] rounded-[18px]">
+              <Spotlight className="item-inner h-full bg-gradient-to-b from-[#161a23] to-[#0a0d14] rounded-[18px]" spotlightColor="rgba(96,165,250,0.08)">
                 <div className="feature-inner-content feature-bottom flex flex-col lg:flex-row justify-between p-10 h-full overflow-hidden relative">
 
                   <div className="feature-top-content flex flex-col gap-6 relative z-10 lg:w-[40%]">
@@ -474,7 +474,7 @@ export const Expertise = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Spotlight>
             </motion.div>
 
             {/* Consultation CTA Card */}
@@ -484,7 +484,7 @@ export const Expertise = () => {
               whileHover="hover"
               className="feature-item _02 p-[0.375rem] rounded-[24px] bg-[#0a0d14] border border-[#858b9433] shadow-[0_0_0_6px_#161920] relative group flex flex-col overflow-hidden cursor-default"
             >
-              <div className="item-inner two h-full bg-gradient-to-b from-[#1c1f26] via-[#0a0d14] to-[#0a0d14] rounded-[18px] relative z-10">
+              <Spotlight className="item-inner two h-full bg-gradient-to-b from-[#1c1f26] via-[#0a0d14] to-[#0a0d14] rounded-[18px] relative z-10" spotlightColor="rgba(236,72,153,0.1)">
                 <div className="feature-inner-content two p-10 flex flex-col justify-center items-center text-center h-full">
 
                   <div className="feature-title-info">
@@ -512,7 +512,7 @@ export const Expertise = () => {
                   </div>
 
                 </div>
-              </div>
+              </Spotlight>
 
               <div className="feature-bg absolute inset-0 z-0 overflow-hidden rounded-[18px] opacity-10 grayscale brightness-125">
                 <video autoPlay loop muted playsInline className="feature-bg-video w-full h-full object-cover">
