@@ -1,11 +1,30 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M7.11111 7.11111V8.2963H3.55556V7.11111H2.37037V5.92593H1.18519V4.74074H0V3.55556H3.55556V4.74074H4.74074V5.92593H5.92593V7.11111H7.11111ZM4.74074 4.74074H5.92593V5.92593H7.11111V7.11111H8.2963V3.55556H7.11111V2.37037H5.92593V1.18519H4.74074V0H3.55556V3.55556H4.74074V4.74074ZM30.8148 14.2222V11.8519H29.6296V9.48148H28.4444V8.2963H27.2593V7.11111H26.0741V5.92593H23.7037V4.74074H21.3333V3.55556H14.2222V4.74074H11.8519V5.92593H9.48148V7.11111H8.2963V8.2963H9.48148V9.48148H10.6667V10.6667H11.8519V11.8519H13.037V10.6667H15.4074V9.48148H20.1481V10.6667H22.5185V11.8519H23.7037V13.037H24.8889V15.4074H26.0741V20.1481H24.8889V22.5185H23.7037V23.7037H22.5185V24.8889H20.1481V26.0741H15.4074V24.8889H13.037V23.7037H11.8519V22.5185H10.6667V20.1481H9.48148V15.4074H10.6667V13.037H11.8519V11.8519H10.6667V10.6667H9.48148V9.48148H8.2963V8.2963H7.11111V9.48148H5.92593V11.8519H4.74074V14.2222H3.55556V21.3333H4.74074V23.7037H5.92593V26.0741H7.11111V27.2593H8.2963V28.4444H9.48148V29.6296H11.8519V30.8148H14.2222V32H21.3333V30.8148H23.7037V29.6296H26.0741V28.4444H27.2593V27.2593H28.4444V26.0741H29.6296V23.7037H30.8148V21.3333H32V14.2222H30.8148ZM14.2222 13.037V14.2222H15.4074V15.4074H16.5926V14.2222H18.963V15.4074H20.1481V16.5926H21.3333V18.963H20.1481V20.1481H18.963V21.3333H16.5926V20.1481H15.4074V18.963H14.2222V16.5926H15.4074V15.4074H14.2222V14.2222H13.037V13.037H11.8519V15.4074H10.6667V20.1481H11.8519V22.5185H13.037V23.7037H15.4074V24.8889H20.1481V23.7037H22.5185V22.5185H23.7037V20.1481H24.8889V15.4074H23.7037V13.037H22.5185V11.8519H20.1481V10.6667H15.4074V11.8519H13.037V13.037H14.2222ZM17.7778 16.5926V17.7778H16.5926V16.5926H15.4074V18.963H16.5926V20.1481H18.963V18.963H20.1481V16.5926H18.963V15.4074H16.5926V16.5926H17.7778Z" fill="url(#paint0_linear_232_5581)"/>
-<defs>
-<linearGradient id="paint0_linear_232_5581" x1="16" y1="0" x2="16" y2="32" gradientUnits="userSpaceOnUse">
-<stop stop-color="#FFC400"/>
-<stop offset="0.35" stop-color="#66BCD3"/>
-<stop offset="0.7" stop-color="#E06368"/>
-<stop offset="1" stop-color="#FF72E5"/>
-</linearGradient>
-</defs>
+  <defs>
+    <linearGradient id="g12" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#93c5fd"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <!-- Crosshair arms top/bottom/left/right -->
+  <rect x="14" y="0" width="4" height="6" rx="1" fill="url(#g12)"/>
+  <rect x="14" y="26" width="4" height="6" rx="1" fill="url(#g12)"/>
+  <rect x="0" y="14" width="6" height="4" rx="1" fill="url(#g12)"/>
+  <rect x="26" y="14" width="6" height="4" rx="1" fill="url(#g12)"/>
+  <!-- Outer ring -->
+  <rect x="8" y="4" width="16" height="2" rx="1" fill="url(#g12)" opacity="0.7"/>
+  <rect x="4" y="8" width="2" height="16" rx="1" fill="url(#g12)" opacity="0.7"/>
+  <rect x="26" y="8" width="2" height="16" rx="1" fill="url(#g12)" opacity="0.7"/>
+  <rect x="8" y="26" width="16" height="2" rx="1" fill="url(#g12)" opacity="0.7"/>
+  <!-- Corner pixels -->
+  <rect x="6" y="6" width="2" height="2" fill="url(#g12)" opacity="0.5"/>
+  <rect x="24" y="6" width="2" height="2" fill="url(#g12)" opacity="0.5"/>
+  <rect x="6" y="24" width="2" height="2" fill="url(#g12)" opacity="0.5"/>
+  <rect x="24" y="24" width="2" height="2" fill="url(#g12)" opacity="0.5"/>
+  <!-- Inner ring -->
+  <rect x="12" y="10" width="8" height="2" rx="1" fill="url(#g12)" opacity="0.5"/>
+  <rect x="10" y="12" width="2" height="8" rx="1" fill="url(#g12)" opacity="0.5"/>
+  <rect x="20" y="12" width="2" height="8" rx="1" fill="url(#g12)" opacity="0.5"/>
+  <rect x="12" y="20" width="8" height="2" rx="1" fill="url(#g12)" opacity="0.5"/>
+  <!-- Center dot -->
+  <rect x="13" y="13" width="6" height="6" rx="1.5" fill="url(#g12)"/>
 </svg>

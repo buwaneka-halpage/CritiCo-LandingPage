@@ -1,4 +1,4 @@
-import { Zap, Database, Workflow, Settings, Activity, Layers, Cloud, Mail, Server, Network, Bot, ArrowUpRight } from "lucide-react";
+import { Zap, Database, Workflow, Settings, Activity, Layers, Bot, ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { motion, type Variants } from "framer-motion";
 import Spotlight from "./reactbits/Spotlight";
@@ -91,67 +91,83 @@ export const Expertise = () => {
                     ))}
                   </div>
                 </div>
-                <div className="mt-12 relative h-64 w-full flex items-center justify-center overflow-hidden">
-                  <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 200">
+                <div className="mt-10 relative h-72 w-full flex items-center justify-center">
+                  {/*
+                    Pentagon hub-and-spoke layout.
+                    All CSS positions derived from SVG coords (viewBox 400x288):
+                      CSS left = x/400*100%,  CSS top = y/288*100%
+                    Center=(200,144) r=105px, 5 nodes every 72deg from top:
+                      Node 0 top         (200, 39)  left 50.00%  top 13.54%
+                      Node 1 upper-right (300,112)  left 75.00%  top 38.89%
+                      Node 2 lower-right (262,229)  left 65.50%  top 79.51%
+                      Node 3 lower-left  (138,229)  left 34.50%  top 79.51%
+                      Node 4 upper-left  (100,112)  left 25.00%  top 38.89%
+                  */}
+                  <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 288" preserveAspectRatio="xMidYMid meet">
                     <defs>
-                      <linearGradient id="wire-glow" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#60a5fa" stopOpacity="0" />
-                        <stop offset="50%" stopColor="#60a5fa" stopOpacity="0.5" />
-                        <stop offset="100%" stopColor="#60a5fa" stopOpacity="0" />
-                      </linearGradient>
+                      <linearGradient id="wg0" x1="200" y1="144" x2="200" y2="39"  gradientUnits="userSpaceOnUse"><stop offset="0%" stopColor="#60a5fa" stopOpacity="0.9"/><stop offset="100%" stopColor="#60a5fa" stopOpacity="0"/></linearGradient>
+                      <linearGradient id="wg1" x1="200" y1="144" x2="300" y2="112" gradientUnits="userSpaceOnUse"><stop offset="0%" stopColor="#ec4899" stopOpacity="0.9"/><stop offset="100%" stopColor="#ec4899" stopOpacity="0"/></linearGradient>
+                      <linearGradient id="wg2" x1="200" y1="144" x2="262" y2="229" gradientUnits="userSpaceOnUse"><stop offset="0%" stopColor="#22c55e" stopOpacity="0.9"/><stop offset="100%" stopColor="#22c55e" stopOpacity="0"/></linearGradient>
+                      <linearGradient id="wg3" x1="200" y1="144" x2="138" y2="229" gradientUnits="userSpaceOnUse"><stop offset="0%" stopColor="#a855f7" stopOpacity="0.9"/><stop offset="100%" stopColor="#a855f7" stopOpacity="0"/></linearGradient>
+                      <linearGradient id="wg4" x1="200" y1="144" x2="100" y2="112" gradientUnits="userSpaceOnUse"><stop offset="0%" stopColor="#f59e0b" stopOpacity="0.9"/><stop offset="100%" stopColor="#f59e0b" stopOpacity="0"/></linearGradient>
                     </defs>
-                    <path d="M 100 100 L 200 100" stroke="#ffffff0a" strokeWidth="1" fill="none" />
-                    <path d="M 200 100 L 300 100" stroke="#ffffff0a" strokeWidth="1" fill="none" />
-                    <path d="M 200 100 L 200 40" stroke="#ffffff0a" strokeWidth="1" fill="none" />
-                    <path d="M 200 100 L 250 160" stroke="#ffffff0a" strokeWidth="1" fill="none" />
-                    <path d="M 150 160 L 200 100" stroke="#ffffff0a" strokeWidth="1" fill="none" />
-                    <motion.path
-                      d="M 100 100 L 200 100"
-                      stroke="url(#wire-glow)"
-                      strokeWidth="2"
-                      fill="none"
-                      initial={{ pathLength: 0, opacity: 0 }}
-                      animate={{ pathLength: 1, opacity: [0, 1, 0] }}
-                      transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                    />
-                    <motion.path
-                      d="M 200 100 L 300 100"
-                      stroke="url(#wire-glow)"
-                      strokeWidth="2"
-                      fill="none"
-                      initial={{ pathLength: 0, opacity: 0 }}
-                      animate={{ pathLength: 1, opacity: [0, 1, 0] }}
-                      transition={{ duration: 3, repeat: Infinity, delay: 1, ease: "linear" }}
-                    />
+                    <path d="M 200 144 L 200 39"  stroke="#ffffff07" strokeWidth="1" fill="none"/>
+                    <path d="M 200 144 L 300 112" stroke="#ffffff07" strokeWidth="1" fill="none"/>
+                    <path d="M 200 144 L 262 229" stroke="#ffffff07" strokeWidth="1" fill="none"/>
+                    <path d="M 200 144 L 138 229" stroke="#ffffff07" strokeWidth="1" fill="none"/>
+                    <path d="M 200 144 L 100 112" stroke="#ffffff07" strokeWidth="1" fill="none"/>
+                    {([
+                      ["M 200 144 L 200 39",  "wg0", 0   ],
+                      ["M 200 144 L 300 112", "wg1", 0.6 ],
+                      ["M 200 144 L 262 229", "wg2", 1.2 ],
+                      ["M 200 144 L 138 229", "wg3", 1.8 ],
+                      ["M 200 144 L 100 112", "wg4", 2.4 ],
+                    ] as [string, string, number][]).map(([d, grad, delay], i) => (
+                      <motion.path
+                        key={i}
+                        d={d}
+                        stroke={`url(#${grad})`}
+                        strokeWidth="1.5"
+                        fill="none"
+                        strokeLinecap="round"
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        animate={{ pathLength: 1, opacity: [0, 1, 0] }}
+                        transition={{ duration: 1.8, repeat: Infinity, delay, ease: "linear" }}
+                      />
+                    ))}
                   </svg>
 
-                  <div className="relative w-full h-full">
-                    {/* Center Node */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-2xl bg-gradient-to-br from-[#60a5fa] to-[#3b82f6] shadow-[0_0_30px_rgba(96,165,250,0.3)] flex items-center justify-center z-10 border border-white/20">
-                      <Zap size={24} className="text-white animate-pulse" />
-                    </div>
-
-                    {/* Peripheral Nodes */}
-                    {[
-                      { icon: Database, color: "#60a5fa", pos: "top-[20%] left-[25%]", delay: 0 },
-                      { icon: Workflow, color: "#a855f7", pos: "bottom-[20%] left-[30%]", delay: 0.2 },
-                      { icon: Layers, color: "#ec4899", pos: "top-[15%] right-[25%]", delay: 0.4 },
-                      { icon: Activity, color: "#22c55e", pos: "bottom-[15%] right-[30%]", delay: 0.6 },
-                      { icon: Settings, color: "#f59e0b", pos: "top-1/2 right-[15%] -translate-y-1/2", delay: 0.8 }
-                    ].map((nodeItem, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        whileHover={{ scale: 1.15 }}
-                        transition={{ delay: nodeItem.delay, duration: 0.5 }}
-                        className={`absolute ${nodeItem.pos} w-10 h-10 rounded-xl bg-[#11141b] border border-white/10 flex items-center justify-center group hover:border-white/20 transition-colors cursor-pointer shadow-lg`}
-                      >
-                        <nodeItem.icon size={16} style={{ color: nodeItem.color }} className="opacity-70 group-hover:opacity-100 transition-opacity" />
-                        <div className="absolute inset-0 rounded-xl bg-white/5 animate-ping opacity-20" style={{ animationDuration: '3s' }}></div>
-                      </motion.div>
-                    ))}
+                  {/* Centre hub */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-2xl bg-gradient-to-br from-[#60a5fa] to-[#3b82f6] shadow-[0_0_30px_rgba(96,165,250,0.3)] flex items-center justify-center z-10 border border-white/20">
+                    <Zap size={24} className="text-white animate-pulse" />
                   </div>
+
+                  {([
+                    { Icon: Database, color: "#60a5fa", label: "Data",       left: "47%",   top: "5.5%"   },
+                    { Icon: Layers,   color: "#ec4899", label: "App Stack",  left: "67%",   top: "30.89%" },
+                    { Icon: Activity, color: "#22c55e", label: "Monitoring", left: "60.5%", top: "80.51%" },
+                    { Icon: Workflow, color: "#a855f7", label: "Workflows",  left: "32.5%", top: "80.51%" },
+                    { Icon: Settings, color: "#f59e0b", label: "Config",     left: "24%",   top: "31.89%" },
+                  ] as { Icon: React.ComponentType<{ size: number; style: React.CSSProperties; className: string }>, color: string, label: string, left: string, top: string }[]).map((node, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, scale: 0.7 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      whileHover={{ scale: 1.12 }}
+                      transition={{ delay: i * 0.12, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                      className="absolute z-10 flex flex-col items-center gap-1.5"
+                      style={{ left: node.left, top: node.top }}
+                    >
+                      <div
+                        className="w-10 h-10 rounded-xl bg-[#11141b] border border-white/[0.08] flex items-center justify-center group hover:border-white/20 transition-all duration-300 cursor-pointer shadow-lg relative"
+                        style={{ boxShadow: `0 0 18px ${node.color}1a` }}
+                      >
+                        <node.Icon size={16} style={{ color: node.color }} className="opacity-75 group-hover:opacity-100 transition-opacity" />
+                        <div className="absolute inset-0 rounded-xl animate-ping opacity-[0.08]" style={{ backgroundColor: node.color, animationDuration: "4s" }} />
+                      </div>
+                      <span className="font-mono text-[7.5px] text-[#858b94]/60 uppercase tracking-widest whitespace-nowrap">{node.label}</span>
+                    </motion.div>
+                  ))}
                 </div>
               </Spotlight>
             </motion.div>
@@ -434,14 +450,60 @@ export const Expertise = () => {
                           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                           className="w-12 h-12 rounded-2xl bg-[#11141b] border border-white/10 flex items-center justify-center shadow-xl backdrop-blur-sm"
                         >
-                          <Cloud size={20} className="text-[#60a5fa]" />
+                          {/* Premium Cloud icon */}
+                          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                              <filter id="cloud-glow" x="-40%" y="-40%" width="180%" height="180%">
+                                <feGaussianBlur stdDeviation="1.2" result="blur"/>
+                                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                              </filter>
+                              <linearGradient id="cloud-grad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                                <stop stopColor="#93c5fd"/>
+                                <stop offset="1" stopColor="#3b82f6"/>
+                              </linearGradient>
+                            </defs>
+                            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" stroke="url(#cloud-grad)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" filter="url(#cloud-glow)"/>
+                            <path d="M12 19v-5" stroke="#60a5fa" strokeWidth="1.4" strokeLinecap="round" opacity="0.7"/>
+                            <path d="M9.5 16.5L12 14l2.5 2.5" stroke="#60a5fa" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.7"/>
+                          </svg>
                         </motion.div>
 
                         <div className="relative group">
                           <div className="absolute inset-0 bg-[#a855f7]/20 blur-2xl rounded-full scale-150 animate-pulse"></div>
                           <div className="relative w-24 h-24 rounded-full bg-gradient-to-br from-[#a855f7] to-[#ec4899] p-[1px] shadow-2xl">
                             <div className="w-full h-full rounded-full bg-[#0a0d14] flex items-center justify-center overflow-hidden">
-                              <Network size={36} className="text-white animate-[spin_10s_linear_infinite]" />
+                              {/* Premium Network hub icon */}
+                              <svg width="38" height="38" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-[spin_10s_linear_infinite]">
+                                <defs>
+                                  <filter id="hub-glow" x="-30%" y="-30%" width="160%" height="160%">
+                                    <feGaussianBlur stdDeviation="1" result="blur"/>
+                                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                  </filter>
+                                </defs>
+                                {/* Center hub */}
+                                <circle cx="20" cy="20" r="4.5" fill="white" opacity="0.95" filter="url(#hub-glow)"/>
+                                <circle cx="20" cy="20" r="2.5" fill="white"/>
+                                {/* Cardinal spokes */}
+                                <line x1="20" y1="15.5" x2="20" y2="9" stroke="white" strokeWidth="1.2" opacity="0.6"/>
+                                <line x1="20" y1="24.5" x2="20" y2="31" stroke="white" strokeWidth="1.2" opacity="0.6"/>
+                                <line x1="15.5" y1="20" x2="9" y2="20" stroke="white" strokeWidth="1.2" opacity="0.6"/>
+                                <line x1="24.5" y1="20" x2="31" y2="20" stroke="white" strokeWidth="1.2" opacity="0.6"/>
+                                {/* Cardinal nodes */}
+                                <circle cx="20" cy="7" r="2.5" fill="white" opacity="0.8"/>
+                                <circle cx="20" cy="33" r="2.5" fill="white" opacity="0.8"/>
+                                <circle cx="7" cy="20" r="2.5" fill="white" opacity="0.8"/>
+                                <circle cx="33" cy="20" r="2.5" fill="white" opacity="0.8"/>
+                                {/* Diagonal spokes */}
+                                <line x1="17.2" y1="17.2" x2="12.5" y2="12.5" stroke="white" strokeWidth="1" opacity="0.35"/>
+                                <line x1="22.8" y1="17.2" x2="27.5" y2="12.5" stroke="white" strokeWidth="1" opacity="0.35"/>
+                                <line x1="17.2" y1="22.8" x2="12.5" y2="27.5" stroke="white" strokeWidth="1" opacity="0.35"/>
+                                <line x1="22.8" y1="22.8" x2="27.5" y2="27.5" stroke="white" strokeWidth="1" opacity="0.35"/>
+                                {/* Diagonal nodes */}
+                                <circle cx="11" cy="11" r="1.8" fill="white" opacity="0.5"/>
+                                <circle cx="29" cy="11" r="1.8" fill="white" opacity="0.5"/>
+                                <circle cx="11" cy="29" r="1.8" fill="white" opacity="0.5"/>
+                                <circle cx="29" cy="29" r="1.8" fill="white" opacity="0.5"/>
+                              </svg>
                             </div>
                           </div>
                         </div>
@@ -451,7 +513,25 @@ export const Expertise = () => {
                           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                           className="w-12 h-12 rounded-2xl bg-[#11141b] border border-white/10 flex items-center justify-center shadow-xl backdrop-blur-sm"
                         >
-                          <Database size={20} className="text-[#a855f7]" />
+                          {/* Premium Database icon */}
+                          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                              <filter id="db-glow" x="-40%" y="-40%" width="180%" height="180%">
+                                <feGaussianBlur stdDeviation="1.2" result="blur"/>
+                                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                              </filter>
+                              <linearGradient id="db-grad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                                <stop stopColor="#d8b4fe"/>
+                                <stop offset="1" stopColor="#7c3aed"/>
+                              </linearGradient>
+                            </defs>
+                            <ellipse cx="12" cy="6" rx="7.5" ry="2.5" stroke="url(#db-grad)" strokeWidth="1.4" filter="url(#db-glow)"/>
+                            <path d="M4.5 6v5c0 1.38 3.36 2.5 7.5 2.5s7.5-1.12 7.5-2.5V6" stroke="url(#db-grad)" strokeWidth="1.4"/>
+                            <path d="M4.5 11v5c0 1.38 3.36 2.5 7.5 2.5s7.5-1.12 7.5-2.5v-5" stroke="url(#db-grad)" strokeWidth="1.4"/>
+                            {/* Highlight streak */}
+                            <path d="M6 6.8 Q8 5.6 10 6" stroke="#d8b4fe" strokeWidth="0.8" strokeLinecap="round" opacity="0.5"/>
+                            <path d="M6 11.8 Q8 10.6 10 11" stroke="#d8b4fe" strokeWidth="0.8" strokeLinecap="round" opacity="0.4"/>
+                          </svg>
                         </motion.div>
                       </div>
 
@@ -461,14 +541,51 @@ export const Expertise = () => {
                           transition={{ duration: 5, repeat: Infinity }}
                           className="w-10 h-10 rounded-xl bg-[#11141b] border border-white/10 flex items-center justify-center shadow-lg"
                         >
-                          <Mail size={18} className="text-[#ec4899]" />
+                          {/* Premium Mail icon */}
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                              <filter id="mail-glow" x="-40%" y="-40%" width="180%" height="180%">
+                                <feGaussianBlur stdDeviation="1.2" result="blur"/>
+                                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                              </filter>
+                              <linearGradient id="mail-grad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                                <stop stopColor="#f9a8d4"/>
+                                <stop offset="1" stopColor="#be185d"/>
+                              </linearGradient>
+                            </defs>
+                            <rect x="2" y="4" width="20" height="16" rx="2.5" stroke="url(#mail-grad)" strokeWidth="1.4" filter="url(#mail-glow)"/>
+                            <path d="M2 6.5L12 13.5L22 6.5" stroke="url(#mail-grad)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+                            {/* Side fold hints */}
+                            <line x1="2" y1="17" x2="8" y2="13" stroke="#f9a8d4" strokeWidth="0.8" opacity="0.4"/>
+                            <line x1="22" y1="17" x2="16" y2="13" stroke="#f9a8d4" strokeWidth="0.8" opacity="0.4"/>
+                          </svg>
                         </motion.div>
                         <motion.div
                           animate={{ scale: [1.1, 1, 1.1] }}
                           transition={{ duration: 6, repeat: Infinity, delay: 0.5 }}
                           className="w-10 h-10 rounded-xl bg-[#11141b] border border-white/10 flex items-center justify-center shadow-lg"
                         >
-                          <Server size={18} className="text-[#22c55e]" />
+                          {/* Premium Server icon */}
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                              <filter id="srv-glow" x="-40%" y="-40%" width="180%" height="180%">
+                                <feGaussianBlur stdDeviation="1.2" result="blur"/>
+                                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                              </filter>
+                              <linearGradient id="srv-grad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                                <stop stopColor="#86efac"/>
+                                <stop offset="1" stopColor="#15803d"/>
+                              </linearGradient>
+                            </defs>
+                            <rect x="2" y="2" width="20" height="8" rx="2" stroke="url(#srv-grad)" strokeWidth="1.4" filter="url(#srv-glow)"/>
+                            <rect x="2" y="14" width="20" height="8" rx="2" stroke="url(#srv-grad)" strokeWidth="1.4"/>
+                            {/* Status LEDs */}
+                            <circle cx="18.5" cy="6" r="1.5" fill="#22c55e"/>
+                            <circle cx="18.5" cy="18" r="1.5" fill="#22c55e" opacity="0.6"/>
+                            {/* Port lines */}
+                            <line x1="5" y1="6" x2="13" y2="6" stroke="#86efac" strokeWidth="1.2" strokeLinecap="round" opacity="0.5"/>
+                            <line x1="5" y1="18" x2="10" y2="18" stroke="#86efac" strokeWidth="1.2" strokeLinecap="round" opacity="0.4"/>
+                          </svg>
                         </motion.div>
                       </div>
                     </div>

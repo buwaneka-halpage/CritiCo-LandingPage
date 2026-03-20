@@ -115,7 +115,7 @@ export const Footer = () => {
                   <div className="contact-info-inner flex flex-col gap-4">
                     <div className="footer-title text-[11px] font-mono font-bold text-white/20 uppercase tracking-[0.4em]">Address</div>
                     <a href="#" className="footer-contact-address text-xl text-[#858b94] hover:text-white transition-colors leading-tight">
-                      Buwaneka Halpage, University of Moratuwa<br />Sri Lanka
+                      8 Cardenas Ave, San Francisco,<br />CA 94132
                     </a>
                   </div>
                 </div>

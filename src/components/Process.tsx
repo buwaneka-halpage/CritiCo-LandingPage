@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 const steps = [
   {
     number: "Step - 01",
+    icon: "./assets/icon-step-01.svg",
     title: "Discovery & Consultation",
     desc: "We begin by understanding your business goals, challenges, and where technology or AI can drive measurable impact.",
     listText: "Identify automation opportunities",
@@ -12,6 +13,7 @@ const steps = [
   },
   {
     number: "Step - 02",
+    icon: "./assets/icon-step-02.svg",
     title: "Strategy & Blueprint",
     desc: "We create a detailed roadmap outlining software architecture, AI solutions, and seamless integration points.",
     listText: "Build your strategy blueprint",
@@ -23,6 +25,7 @@ const steps = [
   },
   {
     number: "Step - 03",
+    icon: "./assets/icon-step-03.svg",
     title: "Development & Implementation",
     desc: "Our engineers and specialists build and deploy your custom solution — engineered for scale and high performance.",
     listText: "Design, build, and test your solution",
@@ -30,6 +33,7 @@ const steps = [
   },
   {
     number: "Step - 04",
+    icon: "./assets/icon-step-04.svg",
     title: "Optimization & Support",
     desc: "After deployment, we monitor performance, refine workflows, and provide ongoing support.",
     listText: "Continuous improvement and support",
@@ -90,8 +94,13 @@ export const Process = () => {
                 <div className="step-item-inner bg-gradient-to-b from-[#1c1f26] to-[#0a0d14] rounded-[18px] overflow-hidden">
                   {/* Top Content */}
                   <div className="step-item-top p-10 flex flex-col gap-5">
-                    <div className="step-text font-mono text-[11px] text-[#858b94] uppercase tracking-wider underline underline-offset-8 decoration-white/10">
-                      [ {step.number} ]
+                    <div className="flex items-center gap-4">
+                      <div className="w-9 h-9 rounded-xl bg-[#11141b] border border-white/5 flex items-center justify-center">
+                        <img src={step.icon} className="w-5 h-5" alt="" />
+                      </div>
+                      <div className="step-text font-mono text-[11px] text-[#858b94] uppercase tracking-wider underline underline-offset-8 decoration-white/10">
+                        [ {step.number} ]
+                      </div>
                     </div>
                     <h3 className="step-title text-2xl text-white font-medium">{step.title}</h3>
                     <p className="step-description text-[#858b94] leading-relaxed italic">{step.desc}</p>
