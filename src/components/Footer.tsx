@@ -118,6 +118,10 @@ export const Footer = () => {
                       8 Cardenas Ave, San Francisco,<br />CA 94132
                     </a>
                   </div>
+                  <div className="contact-info-inner flex flex-col gap-4">
+                    <div className="footer-title text-[11px] font-mono font-bold text-white/20 uppercase tracking-[0.4em]">Follow Us</div>
+                    <a href="https://www.linkedin.com/company/criti-co" target="_blank" rel="noopener noreferrer" className="contact-link text-xl text-[#858b94] hover:text-white transition-colors">LinkedIn</a>
+                  </div>
                 </div>
 
               </div>
