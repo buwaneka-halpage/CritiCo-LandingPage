@@ -1,33 +1,44 @@
 import { motion } from "framer-motion";
 
 const stack1 = [
-  { name: "LangChain", icon: "https://upload.wikimedia.org/wikipedia/commons/e/e1/LangChain_logo.png" },
-  { name: "TensorFlow", icon: "https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg" },
-  { name: "PyTorch", icon: "https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg" },
-  { name: "Zapier", icon: "https://www.vectorlogo.zone/logos/zapier/zapier-icon.svg" },
+  { name: "LangChain", icon: "https://cdn.simpleicons.org/langchain" },
+  { name: "TensorFlow", icon: "https://cdn.simpleicons.org/tensorflow" },
+  { name: "PyTorch", icon: "https://cdn.simpleicons.org/pytorch" },
+  { name: "OpenAI", icon: "https://cdn.simpleicons.org/openai" },
+  { name: "Anthropic", icon: "https://cdn.simpleicons.org/anthropic" },
+  { name: "Zapier", icon: "https://cdn.simpleicons.org/zapier" },
   { name: "Make", icon: "https://cdn.simpleicons.org/make" },
   { name: "n8n", icon: "https://cdn.simpleicons.org/n8n" },
-  { name: "Python", icon: "https://www.vectorlogo.zone/logos/python/python-icon.svg" },
+  { name: "Python", icon: "https://cdn.simpleicons.org/python" },
+  { name: "Docker", icon: "https://cdn.simpleicons.org/docker" },
 ];
 
 const stack2 = [
-  { name: "Google Sheets", icon: "https://upload.wikimedia.org/wikipedia/commons/3/30/Google_Sheets_logo_%282014-2020%29.svg" },
-  { name: "Airtable", icon: "https://www.vectorlogo.zone/logos/airtable/airtable-icon.svg" },
-  { name: "Notion", icon: "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png" },
-  { name: "PostgreSQL", icon: "https://www.vectorlogo.zone/logos/postgresql/postgresql-icon.svg" },
-  { name: "BigQuery", icon: "https://cdn.worldvectorlogo.com/logos/google-bigquery-1.svg" },
-  { name: "HubSpot", icon: "https://www.vectorlogo.zone/logos/hubspot/hubspot-icon.svg" },
-  { name: "JavaScript", icon: "https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" },
+  { name: "Google Sheets", icon: "https://cdn.simpleicons.org/googlesheets" },
+  { name: "Airtable", icon: "https://cdn.simpleicons.org/airtable" },
+  { name: "Notion", icon: "https://cdn.simpleicons.org/notion" },
+  { name: "PostgreSQL", icon: "https://cdn.simpleicons.org/postgresql" },
+  { name: "BigQuery", icon: "https://cdn.simpleicons.org/googlebigquery" },
+  { name: "MongoDB", icon: "https://cdn.simpleicons.org/mongodb" },
+  { name: "HubSpot", icon: "https://cdn.simpleicons.org/hubspot" },
+  { name: "Salesforce", icon: "https://cdn.simpleicons.org/salesforce" },
+  { name: "Stripe", icon: "https://cdn.simpleicons.org/stripe" },
+  { name: "Shopify", icon: "https://cdn.simpleicons.org/shopify" },
+  { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript" },
 ];
 
 const stack3 = [
-  { name: "Cloudflare", icon: "https://www.vectorlogo.zone/logos/cloudflare/cloudflare-icon.svg" },
+  { name: "Cloudflare", icon: "https://cdn.simpleicons.org/cloudflare" },
   { name: "Datadog", icon: "https://cdn.simpleicons.org/datadog" },
-  { name: "Vercel", icon: "https://www.vectorlogo.zone/logos/vercel/vercel-icon.svg" },
-  { name: "AWS", icon: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
-  { name: "Twilio", icon: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Twilio-logo-red.svg" },
-  { name: "Slack", icon: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg" },
-  { name: "Intercom", icon: "https://www.vectorlogo.zone/logos/intercom/intercom-icon.svg" },
+  { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel" },
+  { name: "AWS", icon: "https://cdn.simpleicons.org/amazonwebservices" },
+  { name: "Google Cloud", icon: "https://cdn.simpleicons.org/googlecloud" },
+  { name: "Azure", icon: "https://cdn.simpleicons.org/microsoftazure" },
+  { name: "GitHub", icon: "https://cdn.simpleicons.org/github" },
+  { name: "Twilio", icon: "https://cdn.simpleicons.org/twilio" },
+  { name: "Slack", icon: "https://cdn.simpleicons.org/slack" },
+  { name: "Intercom", icon: "https://cdn.simpleicons.org/intercom" },
+  { name: "Figma", icon: "https://cdn.simpleicons.org/figma" },
 ];
 
 const MarqueeRow = ({ items, direction = "left", duration = 20 }: { items: typeof stack1, direction?: "left" | "right", duration?: number }) => {
