@@ -5,8 +5,8 @@ const stack1 = [
   { name: "TensorFlow", icon: "https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg" },
   { name: "PyTorch", icon: "https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg" },
   { name: "Zapier", icon: "https://www.vectorlogo.zone/logos/zapier/zapier-icon.svg" },
-  { name: "Make", icon: "https://www.vectorlogo.zone/logos/make/make-icon.svg" },
-  { name: "n8n", icon: "https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.svg" },
+  { name: "Make", icon: "https://cdn.simpleicons.org/make" },
+  { name: "n8n", icon: "https://cdn.simpleicons.org/n8n" },
   { name: "Python", icon: "https://www.vectorlogo.zone/logos/python/python-icon.svg" },
 ];
 
@@ -22,7 +22,7 @@ const stack2 = [
 
 const stack3 = [
   { name: "Cloudflare", icon: "https://www.vectorlogo.zone/logos/cloudflare/cloudflare-icon.svg" },
-  { name: "Datadog", icon: "https://www.vectorlogo.zone/logos/datadog/datadog-icon.svg" },
+  { name: "Datadog", icon: "https://cdn.simpleicons.org/datadog" },
   { name: "Vercel", icon: "https://www.vectorlogo.zone/logos/vercel/vercel-icon.svg" },
   { name: "AWS", icon: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
   { name: "Twilio", icon: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Twilio-logo-red.svg" },
